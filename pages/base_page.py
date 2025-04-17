@@ -41,4 +41,4 @@ class BasePage:
 
     @allure.step("Подождать, пока текст элемента станет видимым")
     def wait_for_text_to_be_visible(self, locator, timeout=10):
-        return WebDriverWait(self.driver,timeout).until(EC.visibility_of_element_located(locator)).text
+        return WebDriverWait(self.driver,timeout).until(EC.visibility_of_element_located(locator))

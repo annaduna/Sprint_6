@@ -1,14 +1,16 @@
 import allure
+
+from locators.question_locator import QuestionsLocators
 from pages.base_page import BasePage
 # from locators.main_page_locators import MainPageLocators
 # import data
-from question_locator import QuestionsLocators
+
 
 class CheckAnswer(BasePage):
     @allure.step("кликнуть на вопрос")
     def click_question(self,id):
         question_locator=QuestionsLocators.get_question_locator(id)
-        self.wait_for_element(question_locator)
+        self.click_on_element(question_locator)
 
 
 
