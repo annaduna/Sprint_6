@@ -11,7 +11,27 @@ class Questions:
         ]
 
 
+class DataForOrder:
+    user_1 = {
+        'name': 'Анна',
+        'last_name': 'Дунаева',
+        'address': 'Саломинос 12',
+        'station_metro': 'Черкизовская',
+        'phone': '+79031234567',
+        'data': '01.04.2025',
+        'time_rent': 'сутки',
+        'color': 'чёрный жемчуг',
+        'comment': 'хочу самый новый самокат'
+     }
 
-
-
-
+    user_2 = {
+        'name': 'Иванна',
+        'last_name': 'Иванова',
+        'address': 'Саламинос 15',
+        'station_metro': 'Сокольники',
+        'phone': '+79031234568',
+        'data': '02.04.2025',
+        'time_rent': 'двое суток',
+        'color': 'серая безысходность',
+        'comment': 'позвонить по номеру'
+    }

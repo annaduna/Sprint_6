@@ -12,17 +12,10 @@ class CheckAnswer(BasePage):
         question_locator=QuestionsLocators.get_question_locator(id)
         self.click_on_element(question_locator)
 
-
-
-
     @allure.step('проверить текст ответа на вопрос')
     def check_answer_on_question(self, id, expected_answer):
         actual_text = self.get_text_on_element(QuestionsLocators.get_answer_locator(id))
         return actual_text == expected_answer
-
-
-
-
 
     @allure.step('скрол до вопроса')
     def scroll_to_question(self,id):
