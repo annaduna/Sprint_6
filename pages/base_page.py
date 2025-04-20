@@ -8,6 +8,9 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+from conftest import driver
+
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -38,20 +41,14 @@ class BasePage:
         element = self.driver.find_element(*locator)
         element.click()
         element.send_keys(value)
-        time.sleep(2)
-        order_text = self.driver.find_element(By.XPATH, f"//div[contains(text(), \'{value}\')]").click()
-
-    @allure.step("Выбрать из выпадающего списка")
-    def select_dropdown2(self, locator, value):
-        dropdown = self.driver.find_element(*locator)
-        select = Select(dropdown)
-        select.select_by_index(value)
+        time.sleep(1)
+        self.driver.find_element(By.XPATH, f"//div[contains(text(), \'{value}\')]").click()
 
     def select_dropdown_no_type(self, locator, value):
         element = self.driver.find_element(*locator)
         element.click()
-        time.sleep(2)
-        order_text = self.driver.find_element(By.XPATH, f"//div[contains(text(), \'{value}\')]").click()
+        time.sleep(1)
+        self.driver.find_element(By.XPATH, f"//div[contains(text(), \'{value}\')]").click()
 
     @allure.step("Получить текст элемента")
     def get_text_on_element(self, locator, timeout=10):
@@ -70,3 +67,15 @@ class BasePage:
     def scroll_to_element(self, locator, timeout=10):
         element = self.wait_for_element(locator, timeout)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    @allure.step('возвращает текущий url')
+    def get_url(self):
+        return self.driver.current_url
+
+    @allure.step('дожидается смены url')
+    def wait_for_url_change(self, url, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.url_changes(url))
+
+    @allure.step('дожидается загрузки страницы с url')
+    def wait_for_page_load(self, url, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.url_to_be(url))

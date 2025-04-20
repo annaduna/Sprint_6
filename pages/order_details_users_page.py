@@ -7,7 +7,7 @@ from data import DataForOrder
 class FillingDetailsUsers(BasePage):
 
     @allure.step('нажать на кнопку "Заказать" на главной странице')
-    def click_button_order_further(self):
+    def click_button_order_header(self):
         button_locator = OrderDetailsUsersLocator.ORDER_BUTTON_TOP
         self.click_on_element(button_locator)
 
@@ -21,8 +21,7 @@ class FillingDetailsUsers(BasePage):
 
     @allure.step('нажать на кнопку Далее')
     def click_button_next(self):
-        button_next = OrderDetailsUsersLocator.NEXT_BUTTON
-        self.scroll_to_element(button_next)
-        self.click_on_element(button_next)
+        self.scroll_to_element(OrderDetailsUsersLocator.NEXT_BUTTON)
+        self.click_on_element(OrderDetailsUsersLocator.NEXT_BUTTON)
 
 
