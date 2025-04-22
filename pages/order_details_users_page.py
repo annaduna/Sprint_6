@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from locators.order_details_users_locator import OrderDetailsUsersLocator
 from pages.base_page import BasePage
 import allure
@@ -23,5 +25,12 @@ class FillingDetailsUsers(BasePage):
     def click_button_next(self):
         self.scroll_to_element(OrderDetailsUsersLocator.NEXT_BUTTON)
         self.click_on_element(OrderDetailsUsersLocator.NEXT_BUTTON)
+
+    @allure.step('отключить куки')
+    def close_cookies(self):
+        elements = self.driver.find_elements(By.XPATH, "//button[text()='да все привыкли']")
+        if len(elements) > 0:
+            accept_all = self.driver.find_element(By.XPATH, "//button[text()='да все привыкли']")
+            accept_all.click()
 
 

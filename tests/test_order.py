@@ -30,6 +30,7 @@ class TestOrder:
         report_page = OrderReport(driver)
         assert report_page.check_order_completion()
         report_page.click_button_check_status()
+        assert report_page.check_element_txt()
 
     @allure.title("обе кнопки Заказ переходят на страницу заказа")
     def test_equal_order_header_footer(self, driver):

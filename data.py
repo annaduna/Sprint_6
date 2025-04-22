@@ -1,3 +1,6 @@
+from locators.order_details_rent_locator import DateRentLocators
+
+
 class Questions:
     answers = [
         [0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."],
@@ -34,4 +37,11 @@ class DataForOrder:
         'time_rent': 'двое суток',
         'color': 'серая безысходность',
         'comment': 'позвонить по номеру'
+    }
+
+
+class DataRentPage:
+        COLOR_LOCATORS = {
+        'чёрный жемчуг': DateRentLocators.CHECKBOX_BLACK,
+        'серая безысходность': DateRentLocators.CHECKBOX_GREY
     }
