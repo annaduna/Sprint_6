@@ -1,7 +1,7 @@
 from locators.order_details_users_locator import OrderDetailsUsersLocator
 from pages.base_page import BasePage
 import allure
-from data import DataForOrder
+
 
 
 class FillingDetailsUsers(BasePage):

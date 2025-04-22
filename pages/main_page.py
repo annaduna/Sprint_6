@@ -3,8 +3,7 @@ import allure
 from locators.question_locator import QuestionsLocators
 from locators.main_page_locator import MainPageLocator
 from pages.base_page import BasePage
-# from locators.main_page_locators import MainPageLocators
-# import data
+
 
 
 class MainPage(BasePage):
